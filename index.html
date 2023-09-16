@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>خالد بيمسي</title>
+    <style>
+        .outer {
+            margin: auto;
+            height: 300px;
+            width: 400px;
+            border: 2px solid black;
+            position: relative;
+        }
+        
+        p {
+            margin-left: 80px;
+        }
+        
+        .input-field {
+            margin-left: 80px;
+            padding: 10px;
+        }
+        
+        #submit-button {
+            width: fit-content;
+            font-size: 15px;
+            margin-top: 20px;
+            position: absolute;
+            left: 150px;
+        }
+        
+        #submit-button:hover {
+            background: green;
+            font-size: 13px;
+            cursor: pointer;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="outer">
+        <h1 style="text-align:center">خالد بيمسي</h1>
+        <p>اكتب كدا اي حاجة</p>
+        <input class="input-field" type="text" placeholder="اكتب يابا" id="input-a" />
+        <p>برضو اكتب اي حاجة </p>
+        <input class="input-field" type="password" placeholder="اكتب ياحبيبي" id="input-b" />
+        <br />
+        <input type="submit" onmouseenter="validateInputs()" onclick="alert('ربنا يحميك يابني ')" id="submit-button" />
+    </div>
+
+    <script>
+        let flag = 1;
+
+        function validateInputs() {
+            const inputA = document.getElementById("input-a");
+            const inputB = document.getElementById("input-b");
+            const submitButton = document.getElementById("submit-button");
+
+            if (inputA.value === "" || inputB.value === "") {
+                toggleButtonPosition();
+                inputA.style.border = "3px solid red";
+                inputB.style.border = "3px solid red";
+                submitButton.value = "املأ الداتا يا حقير 😏";
+            } else {
+                inputA.style.border = "3px solid green";
+                inputB.style.border = "3px solid green";
+                submitButton.value = "كدا تمام 😁";
+                submitButton.style.left = "120px";
+            }
+        }
+
+        function toggleButtonPosition() {
+            const submitButton = document.getElementById("submit-button");
+
+            if (flag === 1) {
+                submitButton.style.left = "210px";
+                flag = 2;
+            } else if (flag === 2) {
+                submitButton.style.left = "80px";
+                flag = 1;
+            }
+        }
+    </script>
+</body>
+
+</html>
